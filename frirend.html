@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>单页</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="css/weuix.min.css">
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/reset.css"/>
+</head>
+
+<body ontouchstart class="page-bg">
+
+<div class="top-warp-fixed">
+    <div class="top-box">
+
+        <div class="weui_search_bar">
+            <img src="image/img21.jpg" class="logo-img"/>
+            <input type="search" class="search-input" id='search' placeholder='关键字' style="box-sizing:content-box"/>
+            <button class="weui_btn weui_btn_mini weui_btn_primary"><i class="icon icon-4"></i></button>
+        </div>
+    </div>
+    <div class="weui_tab" style="height:44px;" id="tab3">
+        <div class="weui_navbar" style="height:44px;">
+            <a href="index.html" class="weui_navbar_item ">
+                首页
+            </a>
+            <a href="list.html" class="weui_navbar_item">
+                手机
+            </a>
+            <a href="form.html" class="weui_navbar_item">
+                表单
+            </a>
+            <a href="page.html" class="weui_navbar_item">
+                单页
+            </a>
+            <a href="frirend.html" class="weui_navbar_item tab-gr">
+                朋友圈
+            </a>
+        </div>
+    </div>
+</div>
+<div style="height: 90px;"></div>
+<!-- 开始 朋友圈 -->
+<div class="weui_cells moments">
+    <!-- 普通的post -->
+    <div class="weui_cell moments__post">
+        <div class="weui_cell_hd">
+            <img src="image/img21.jpg" />
+        </div>
+        <div class="weui_cell_bd">
+            <!-- 人名链接 -->
+            <a class="title" href="javascript:;">
+                <span>我就是老大</span>
+            </a>
+            <!-- post内容 -->
+            <p id="paragraph" class="paragraph">
+                谁说书生百无一用，谁说书生百无一用谁说书生百无一用谁说书生百无一用谁说书生百无一用谁说书生百无一用谁说书生百无一用谁说书生百无一用谁说书生百无一用谁说书生百无一用谁说书生百无一用谁说书生百无一用谁说书生百无一用谁说书生百无一用谁说书生百无一用谁说书生百无一用
+            </p>
+            <!-- 伸张链接 -->
+            <a id="paragraphExtender" class="paragraphExtender">显示全文</a>
+            <!-- 相册 -->
+            <div class="thumbnails">
+                <div class="thumbnail">
+                    <img src="image/img19.jpg"/>
+                </div>
+                <div class="thumbnail">
+                    <img src="image/img21.jpg"/>
+                </div>
+            </div>
+            <!-- 资料条 -->
+            <div class="toolbar">
+                <p class="timestamp">回忆中的未来</p>
+                <div>
+                    <div id="actionMenu" class="actionMenu slideIn">
+                        <p class="actionBtn" id="btnLike"><i class="icon icon-96"></i></p>
+                        <p class="actionBtn" id="btnComment"><i class="icon icon-3"></i></p>
+                    </div>
+                </div>
+                <span id="actionToggle" class="actionToggle">..</span>
+            </div>
+            <!-- 赞／评论区 -->
+            <p class="liketext"><i class="icon icon-96"></i><span class="nickname">Yoby</span>,<span class="nickname">奥巴马</span>
+            </p>
+        </div>
+        <!-- 结束 post -->
+    </div>
+</div>
+</body>
+<script src="js/zepto.min.js"></script>
+<script>
+    $(function () {
+//定义文本
+        const paragraph = $('#paragraph');
+        const paragraphText = paragraph.text();
+        const paragraphLength = paragraph.text().length;
+//定义文章长度
+        const maxParagraphLength = 80;
+//定义全文按钮
+        const paragraphExtender = $('#paragraphExtender');
+        var toggleFullParagraph = false;
+
+//定义全文按钮
+        if (paragraphLength < maxParagraphLength) {
+            paragraphExtender.hide();
+        } else {
+            paragraph.html(paragraphText.substring(0, maxParagraphLength) + '...');
+            paragraphExtender.click(function () {
+                if (toggleFullParagraph) {
+                    toggleFullParagraph = false;
+                    paragraphExtender.html('显示全文');
+                    paragraph.html(paragraphText.substring(0, maxParagraphLength) + '...');
+                } else {
+                    toggleFullParagraph = true;
+                    paragraphExtender.html('收起');
+                    paragraph.html(paragraphText);
+                }
+            });
+        }
+        ;
+        const menu = $('#actionMenu');
+        const menuBtn = $('#actionToggle');
+        menuBtn.click(function () {
+            menu.toggleClass('active')
+        });
+    });
+
+
+</script>
+</html>

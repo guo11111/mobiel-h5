@@ -1,0 +1,76 @@
+
+
+@function pxRem($px) {
+  $rem: 32px;
+  @return ($px / $rem) + rem;
+}
+body{
+  font-family: "微软雅黑", "宋体";
+  background: #EEEEEE;
+  color: #333333;
+}
+.logo-img{
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.weui-navigator-list li a{
+  font-size: 14px;
+}
+.weui-navigator-wrapper{
+  height: 50px;
+  line-height: 35px;}
+.weui_grids{
+  background: #ffffff;}
+.content-box{
+  background-color: #ffffff;
+  margin-top: 10px;
+}
+.top-warp-fixed{position: fixed;
+  z-index: 222;
+  width: 100%;
+  top: 0;
+  margin-bottom: 108px;
+}
+.warp-box{
+  margin-top: 90px;
+}
+//主体内容
+
+.content-box{
+
+  .cont-b-tit{
+    border-bottom: 1px solid #eeeeee;
+    h3{text-align: center;
+      padding: 10px 0 3px 0;
+      font-size: 14px;}
+    p{
+      font-size: 12px;
+      text-align: center;color: #666;}
+  }
+  .product-ls{
+    padding: 0 5px;
+    li{
+      float: left;
+      width: 50%;
+      padding: 5px;
+      a{
+        display: block;
+        .pro-ls-img{
+          img{
+            width: 100%;
+            height: pxRem(147px);
+          }
+        }
+        .pro-ls-tit{font-size: pxRem(14px);color: #333;margin-top:-10px;}
+        .pro-ls-des{font-size: pxRem(12px);color: #666666;}
+        .pro-ls-btm{font-size: pxRem(12px);color: #666666;
+          .font-red{
+            color: #FF0000;font-size: pxRem(12px)}
+          .pro-ls-btm-sale{
+            float: right;font-size: pxRem(12px)}
+        }
+      }
+    }
+  }
+}
